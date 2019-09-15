@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON Viewer</title>
+    <style>
+        .canvas-container {
+            width:1024px; height:768px;
+            background: url(assets/sky.png);
+        }
+        .canvas-container canvas {
+            margin:auto;
+        }
+    </style>
+    <script src="app.js"></script>
+    <script src="models/solar-system.js"></script>
+    <script src="node_modules/fabric/dist/fabric.js"></script>
+</head>
+<body>
+<div class="canvas-container" >
+    <canvas id="c" width="1024" height="768"></canvas>
+</div>
+</body>
+</html>

@@ -1,0 +1,1 @@
+{"name":"Zero planets","planets":[{"rotationDuration":15000,"name":"Alfa","orbitRadius":142,"orbitStroke":"rgb(1, 192, 255, 0.5)"},{"rotationDuration":16000,"name":"Beta","orbitRadius":180,"orbitStroke":"rgb(1, 200, 255, 0.7)"}],"textStyle":{"fontFamily":"Open Sans","fontSize":16,"bgrColor":"#002244","fillColor":"#fff"}}

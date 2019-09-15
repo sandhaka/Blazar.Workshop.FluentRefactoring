@@ -1,0 +1,16 @@
+{
+  "name": "jsonmodelreader",
+  "version": "1.0.0",
+  "description": "Read Json and show it as a funny shapes model",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Matteo Tosato",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^6.0.7",
+    "fabric": "^3.4.0"
+  }
+}
