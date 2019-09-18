@@ -172,4 +172,4 @@ namespace SolarSystemsFactory.Initial
             return ssModel2;
         }
     }
-}q
+}
