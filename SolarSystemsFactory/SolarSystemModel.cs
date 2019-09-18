@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 namespace SolarSystemsFactory
 {
-    public class SolarSystemModel : ICloneable
+    public class SolarSystemModel
     {
         public SolarSystemModel()
         {
@@ -23,41 +23,6 @@ namespace SolarSystemsFactory
         public override string ToString()
         {
             return JsonConvert.SerializeObject(this);
-        }
-
-        // Cloneable support
-        public object Clone()
-        {
-            var serializedData = JsonConvert.SerializeObject(this);
-            return JsonConvert.DeserializeObject<SolarSystemModel>(serializedData);
-        }
-
-        // Summable model support
-        public static SolarSystemModel operator +(SolarSystemModel a, SolarSystemModel b)
-        {
-            var planetsToAdd = b.Planets.Where(pB =>
-                !a.Planets.Any(pA =>
-                    pA.Name.ToLower().Equals(pB.Name.ToLower())))
-                .ToList();
-
-            a.Planets.AddRange(planetsToAdd);
-            return a;
-        }
-
-        // Sub model support
-        public static SolarSystemModel operator -(SolarSystemModel a, SolarSystemModel b)
-        {
-            var planetsToRemove = a.Planets.Where(pB =>
-                b.Planets.Any(pA =>
-                    pA.Name.ToLower().Equals(pB.Name.ToLower())))
-                .ToList();
-
-            foreach (var planet in planetsToRemove)
-            {
-                a.Planets.Remove(planet);
-            }
-
-            return a;
         }
     }
 

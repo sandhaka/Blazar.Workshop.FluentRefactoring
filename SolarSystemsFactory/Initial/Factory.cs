@@ -161,15 +161,15 @@ namespace SolarSystemsFactory.Initial
             var ssModel1 = CreateSmallSolarSystem();
             var ssModel2 = CreateSolarSystemWithZeroPlanets();
 
-            foreach (var planet in ssModel1.Planets)
+            foreach (var planet in ssModel2.Planets)
             {
-                if (ssModel2.Planets.Any(p => !p.Name.ToLower().Equals(planet.Name.ToLower())))
+                if (ssModel1.Planets.Any(p => !p.Name.ToLower().Equals(planet.Name.ToLower())))
                 {
-                    ssModel2.Planets.Add(planet);
+                    ssModel1.Planets.Add(planet);
                 }
             }
 
-            return ssModel2;
+            return ssModel1;
         }
     }
 }
