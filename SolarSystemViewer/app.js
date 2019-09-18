@@ -32,10 +32,10 @@ function loadSolarSystem(jsonData) {
     });
 
     let planetLabel = new fabric.Text('', {
-        fill: solarSystemModel.textStyle.fill,
+        fill: solarSystemModel.textStyle.fillColor,
         fontSize: solarSystemModel.textStyle.fontSize,
         fontFamily: solarSystemModel.textStyle.fontFamily,
-        textBackgroundColor: solarSystemModel.textStyle.textBgColor
+        textBackgroundColor: solarSystemModel.textStyle.bgrColor
     });
 
     // load sprite with planets
@@ -224,12 +224,12 @@ document.addEventListener('DOMContentLoaded', () => {
     loadSolarSystem(jsonData);
 });
 
-// // Debug only
-// document.addEventListener('keydown', (eventData) => {
-//     if (eventData.key === 'j') {
-//         console.log("Model: ");
-//         console.log(JSON.stringify(solarSystemModel));
-//     }
-// });
+// Debug only
+document.addEventListener('keydown', (eventData) => {
+    if (eventData.key === 'j') {
+        console.log("Model: ");
+        console.log(JSON.stringify(solarSystemModel));
+    }
+});
 
 //#endregion

@@ -6,11 +6,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Initial" />
-      <Folder Include="Refactored" />
-    </ItemGroup>
-
-    <ItemGroup>
       <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
     </ItemGroup>
 
