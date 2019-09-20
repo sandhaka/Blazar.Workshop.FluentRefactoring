@@ -17,8 +17,8 @@ namespace SolarSystemsFactory.Refactored
             return new FluentSolarSystemBuilder();
         }
 
-        public void Init(string bgrColor = "#002244", string fillColor = "#fff", int fontSize = 16,
-            string fontFamily = "Open Sans", string title = "")
+        public void Init(string title, string bgrColor = "#002244", string fillColor = "#fff", int fontSize = 16,
+            string fontFamily = "Open Sans")
         {
             SetTextStyle(bgrColor, fillColor, fontSize, fontFamily);
             SetTitle(title);
@@ -29,14 +29,14 @@ namespace SolarSystemsFactory.Refactored
     {
         public static ISsBuilderInitialized Init(
             this ISsBuilderCreated builder,
-            string title = "",
+            string title,
             string bgrColor = "#002244",
             string fillColor = "#fff",
             int fontSize = 16,
             string fontFamily = "Open Sans")
         {
             var myBuilder = (FluentSolarSystemBuilder)builder;
-            myBuilder.Init(bgrColor, fillColor, fontSize, fontFamily, title);
+            myBuilder.Init(title, bgrColor, fillColor, fontSize, fontFamily);
             return myBuilder;
         }
 

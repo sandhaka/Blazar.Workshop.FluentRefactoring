@@ -25,7 +25,7 @@ namespace SolarSystemsFactory.Refactored
         public SolarSystemModel CreateSmallSolarSystemFluently()
         {
             var model = FluentSolarSystemBuilder.Create()
-                .Init()
+                .Init("A small one")
                 .AddPlanet("Alfa", 142, "rgb(1,192,255,0.5)", 15000)
                 .AddPlanet("Beta", 180, "rgb(1,192,255,0.5)", 16000)
                 .GetModel();
@@ -39,15 +39,14 @@ namespace SolarSystemsFactory.Refactored
         /// <returns></returns>
         public SolarSystemModel CreateSmallSolarSystemFluentlyWithReusableBuilder()
         {
-            var builder = FluentSolarSystemBuilder.Create();
+            var builder = FluentSolarSystemBuilder.Create().Init("System from two");
 
-            var model1 = builder.Init()
+            var model1 = builder
                 .AddPlanet("Alfa", 142, "rgb(1,192,255,0.5)", 15000)
                 .AddPlanet("Beta", 180, "rgb(1,192,255,0.5)", 16000)
                 .GetModelAndReset();
 
-            var model2 = FluentSolarSystemBuilder.Create()
-                .Init()
+            var model2 = builder
                 .AddPlanet("Gamma", 192, "rgb(1,192,255,0.5)", 18000)
                 .AddPlanet("Teta", 220, "rgb(1,192,255,0.5)", 20000)
                 .AddPlanet("Beta", 180, "rgb(1,192,255,0.5)", 16000)
