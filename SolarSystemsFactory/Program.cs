@@ -15,9 +15,11 @@ namespace SolarSystemsFactory
             var factoryType = ParseArguments.Factory(args);
             Console.WriteLine($"Create new model with method: {method}.");
             var model = ExecuteFactoryMethod.Call(method, factoryType) as SolarSystemModel;
-            Console.WriteLine($"Model: {model}");
 
             File.WriteAllText("../../../../model.json", model?.ToString());
+
+            // Pause before exit
+            Console.ReadLine();
         }
     }
 

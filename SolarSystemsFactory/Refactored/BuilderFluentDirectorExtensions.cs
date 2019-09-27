@@ -1,3 +1,6 @@
+using System;
+using Newtonsoft.Json;
+
 namespace SolarSystemsFactory.Refactored
 {
     public interface ISsBuilderCreated
@@ -49,6 +52,20 @@ namespace SolarSystemsFactory.Refactored
         {
             var myBuilder = (FluentSolarSystemBuilder)builder;
             myBuilder.AddPlanet(name, orbitRadius, orbitStroke, rotationDuration);
+            return myBuilder;
+        }
+
+        public static ISsBuilderInitialized LogModel(this ISsBuilderInitialized builder)
+        {
+            var myBuilder = (FluentSolarSystemBuilder)builder;
+            var model = myBuilder.Model;
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine();
+            Console.WriteLine("======= Created Model =======");
+            Console.WriteLine(model);
+            Console.WriteLine("=============================");
+            Console.WriteLine();
+            Console.ResetColor();
             return myBuilder;
         }
 
