@@ -54,5 +54,24 @@ namespace SolarSystemsFactory.Refactored
 
             return model1 - model2;
         }
+
+        public SolarSystemModel CreateLargeSolarSystemFluently()
+        {
+            return FluentSolarSystemBuilder.Create()
+                .Init("Large one")
+                .AddPlanet("Selene", 90, "rgb(1, 192, 255, 0.5)", 20000)
+                .AddPlanet("Mimas", 116, "rgb(1, 192, 255, 0.5)", 20000)
+                .AddPlanet("Ares", 142, "rgb(1, 192, 255, 0.5)", 20000)
+                .AddPlanet("Enceladus", 168, "rgb(1, 192, 255, 0.5)", 23000)
+                .AddPlanet("Tethys", 194, "rgb(1, 192, 255, 0.5)", 14000)
+                .AddPlanet("Dione", 220, "rgb(1, 192, 255, 0.5)", 10000)
+                .AddPlanet("Zeus", 246, "rgb(1, 192, 255, 0.5)", 53000)
+                .AddPlanet("Rhea", 272, "rgb(1, 192, 255, 0.5)", 15000)
+                .AddPlanet("Titan", 298, "rgb(1, 192, 255, 0.5)", 30000)
+                .AddPlanet("Hyperion", 324, "rgb(1, 192, 255, 0.5)", 28000)
+                .AddPlanet("Iapetus", 350, "rgb(1, 192, 255, 0.5)", 22000)
+                .AddPlanet("Janus", 376, "rgb(1, 192, 255, 0.5)", 24000)
+                .GetModel();
+        }
     }
 }
