@@ -28,7 +28,6 @@ namespace SolarSystemsFactory.Refactored
                 .Init("A small one")
                 .AddPlanet("Alfa", 142, "rgb(1,192,255,0.5)", 15000)
                 .AddPlanet("Beta", 180, "rgb(1,192,255,0.5)", 16000)
-                .LogModel()
                 .GetModel();
 
             return model;

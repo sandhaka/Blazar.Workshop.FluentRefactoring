@@ -55,20 +55,6 @@ namespace SolarSystemsFactory.Refactored
             return myBuilder;
         }
 
-        public static ISsBuilderInitialized LogModel(this ISsBuilderInitialized builder)
-        {
-            var myBuilder = (FluentSolarSystemBuilder)builder;
-            var model = myBuilder.Model;
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine();
-            Console.WriteLine("======= Created Model =======");
-            Console.WriteLine(model);
-            Console.WriteLine("=============================");
-            Console.WriteLine();
-            Console.ResetColor();
-            return myBuilder;
-        }
-
         public static SolarSystemModel GetModel(this ISsBuilderInitialized builder)
         {
             var myBuilder = (FluentSolarSystemBuilder)builder;
