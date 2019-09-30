@@ -1,7 +1,4 @@
-using System;
-using Newtonsoft.Json;
-
-namespace SolarSystemsFactory.Refactored
+namespace SolarSystemsFactory.Refactored.Fluent
 {
     public interface ISsBuilderCreated
     {

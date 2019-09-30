@@ -1,3 +1,5 @@
+using SolarSystemsFactory.Refactored.Fluent;
+
 namespace SolarSystemsFactory.Refactored
 {
     public class Factory2
