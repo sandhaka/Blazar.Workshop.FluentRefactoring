@@ -1,3 +1,5 @@
+using System;
+
 namespace SolarSystemsFactory.Refactored.Fluent
 {
     public interface ISsBuilderCreated
@@ -8,21 +10,64 @@ namespace SolarSystemsFactory.Refactored.Fluent
     {
     }
 
-    public class FluentSolarSystemBuilder : SolarSystemBuilder,
+    // Use composition to add features
+    public class FluentSolarSystemBuilder :
         ISsBuilderCreated,
-        ISsBuilderInitialized
+        ISsBuilderInitialized,
+        ISolarSystemBuilder
     {
-        public static ISsBuilderCreated Create()
+        private readonly ISolarSystemBuilder _solarSystemBuilder;
+
+        public Action<Exception> ExceptionHandler { get; set; } = exception => throw exception;
+
+        public static ISsBuilderCreated Create(ISolarSystemBuilder builder)
         {
-            return new FluentSolarSystemBuilder();
+            return new FluentSolarSystemBuilder(builder);
+        }
+
+        private FluentSolarSystemBuilder(ISolarSystemBuilder builder)
+        {
+            _solarSystemBuilder = builder;
         }
 
         public void Init(string title, string bgrColor = "#002244", string fillColor = "#fff", int fontSize = 16,
             string fontFamily = "Open Sans")
         {
-            SetTextStyle(bgrColor, fillColor, fontSize, fontFamily);
-            SetTitle(title);
+            _solarSystemBuilder.SetTextStyle(bgrColor, fillColor, fontSize, fontFamily);
+            _solarSystemBuilder.SetTitle(title);
         }
+
+        /* Wrapped methods */
+
+        public void SetTitle(string title)
+        {
+            _solarSystemBuilder.SetTitle(title);
+        }
+
+        public void SetTextStyle(string bgrColor = "#002244", string fillColor = "#fff", int fontSize = 16,
+            string fontFamily = "Open Sans")
+        {
+            _solarSystemBuilder.SetTextStyle(bgrColor, fillColor, fontSize, fontFamily);
+        }
+
+        public void AddPlanet(string name, int orbitRadius, string orbitStroke, long rotationDuration)
+        {
+            try
+            {
+                _solarSystemBuilder.AddPlanet(name, orbitRadius, orbitStroke, rotationDuration);
+            }
+            catch (Exception e)
+            {
+                ExceptionHandler.Invoke(e);
+            }
+        }
+
+        public void Reset()
+        {
+            _solarSystemBuilder.Reset();
+        }
+
+        public SolarSystemModel Model => _solarSystemBuilder.Model;
     }
 
     public static class BuilderFluentDirectorExtensions
@@ -49,6 +94,15 @@ namespace SolarSystemsFactory.Refactored.Fluent
         {
             var myBuilder = (FluentSolarSystemBuilder)builder;
             myBuilder.AddPlanet(name, orbitRadius, orbitStroke, rotationDuration);
+            return myBuilder;
+        }
+
+        public static ISsBuilderInitialized Catch(
+            this ISsBuilderInitialized builder,
+            Action<Exception> handler)
+        {
+            var myBuilder = (FluentSolarSystemBuilder)builder;
+            myBuilder.ExceptionHandler = handler;
             return myBuilder;
         }
 

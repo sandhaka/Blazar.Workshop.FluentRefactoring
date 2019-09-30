@@ -1,3 +1,6 @@
+using System;
+using SolarSystemsFactory.Refactored.Utils;
+
 namespace SolarSystemsFactory.Refactored
 {
     public class SolarSystemBuilder : ISolarSystemBuilder
@@ -19,6 +22,26 @@ namespace SolarSystemsFactory.Refactored
 
         public void AddPlanet(string name, int orbitRadius, string orbitStroke, long rotationDuration)
         {
+            if (string.IsNullOrEmpty(name))
+            {
+                throw new SolarSystemBuilderException("A planet name must be supplied");
+            }
+
+            if (orbitRadius <= 0)
+            {
+                throw new SolarSystemBuilderException("Orbit radius must be greater then 0");
+            }
+
+            if (string.IsNullOrEmpty(orbitStroke))
+            {
+                throw new SolarSystemBuilderException("A orbit stroke must be supplied");
+            }
+
+            if (rotationDuration <= 5000 || rotationDuration >= 30000)
+            {
+                throw new SolarSystemBuilderException("Rotation duration must be from 5000 to 30000");
+            }
+
             _model.Planets.Add(new Planet
             {
                 Name = name,

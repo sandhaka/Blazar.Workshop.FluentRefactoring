@@ -1,18 +1,18 @@
+using System;
 using SolarSystemsFactory.Refactored.Fluent;
+using SolarSystemsFactory.Refactored.Utils;
 
 namespace SolarSystemsFactory.Refactored
 {
     public class Factory2
     {
-        private ISolarSystemBuilder _builder;
+        private ISolarSystemBuilder _builder = new SolarSystemBuilder();
 
         /// <summary>
         /// Simple builder
         /// </summary>
         public SolarSystemModel CreateSmallSolarSystem()
         {
-            _builder = new SolarSystemBuilder();
-
             _builder.SetTextStyle();
             _builder.SetTitle("Zero planets");
             _builder.AddPlanet("Alfa", 142, "rgb(1,192,255,0.5)", 15000);
@@ -26,7 +26,7 @@ namespace SolarSystemsFactory.Refactored
         /// </summary>
         public SolarSystemModel CreateSmallSolarSystemFluently()
         {
-            var model = FluentSolarSystemBuilder.Create()
+            var model = FluentSolarSystemBuilder.Create(_builder)
                 .Init("A small one")
                 .AddPlanet("Alfa", 142, "rgb(1,192,255,0.5)", 15000)
                 .AddPlanet("Beta", 180, "rgb(1,192,255,0.5)", 16000)
@@ -40,7 +40,7 @@ namespace SolarSystemsFactory.Refactored
         /// </summary>
         public SolarSystemModel CreateSmallSolarSystemFluentlyWithReusableBuilder()
         {
-            var builder = FluentSolarSystemBuilder.Create().Init("System from two");
+            var builder = FluentSolarSystemBuilder.Create(_builder).Init("System from two");
 
             var model1 = builder
                 .AddPlanet("Alfa", 142, "rgb(1,192,255,0.5)", 15000)
@@ -58,8 +58,31 @@ namespace SolarSystemsFactory.Refactored
 
         public SolarSystemModel CreateLargeSolarSystemFluently()
         {
-            return FluentSolarSystemBuilder.Create()
+            return FluentSolarSystemBuilder.Create(_builder)
                 .Init("Large one")
+                .Catch(e =>
+                {
+                    if (e is SolarSystemBuilderException solarSystemBuilderException)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine();
+                        Console.WriteLine($"=========== BuilderException {e.TargetSite.Name} occurred ===========");
+                        Console.WriteLine(solarSystemBuilderException.ComposedMessage);
+                        Console.WriteLine("=================================================");
+                        Console.WriteLine();
+                        Console.ResetColor();
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine();
+                        Console.WriteLine($"=========== Exception {e.TargetSite.Name} occurred ===========");
+                        Console.WriteLine(e.Message);
+                        Console.WriteLine("==========================================");
+                        Console.WriteLine();
+                        Console.ResetColor();
+                    }
+                })
                 .AddPlanet("Selene", 90, "rgb(1, 192, 255, 0.5)", 20000)
                 .AddPlanet("Mimas", 116, "rgb(1, 192, 255, 0.5)", 20000)
                 .AddPlanet("Ares", 142, "rgb(1, 192, 255, 0.5)", 20000)

@@ -38,21 +38,9 @@
       "orbitStroke": "rgb(1, 192, 255, 0.5)"
     },
     {
-      "rotationDuration": 53000,
-      "name": "Zeus",
-      "orbitRadius": 246,
-      "orbitStroke": "rgb(1, 192, 255, 0.5)"
-    },
-    {
       "rotationDuration": 15000,
       "name": "Rhea",
       "orbitRadius": 272,
-      "orbitStroke": "rgb(1, 192, 255, 0.5)"
-    },
-    {
-      "rotationDuration": 30000,
-      "name": "Titan",
-      "orbitRadius": 298,
       "orbitStroke": "rgb(1, 192, 255, 0.5)"
     },
     {
