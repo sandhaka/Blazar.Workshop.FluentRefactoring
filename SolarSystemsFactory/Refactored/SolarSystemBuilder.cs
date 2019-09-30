@@ -1,6 +1,6 @@
 namespace SolarSystemsFactory.Refactored
 {
-    public class SolarSystemBuilder
+    public class SolarSystemBuilder : ISolarSystemBuilder
     {
         private SolarSystemModel _model = new SolarSystemModel();
 

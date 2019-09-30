@@ -2,26 +2,26 @@ namespace SolarSystemsFactory.Refactored
 {
     public class Factory2
     {
+        private ISolarSystemBuilder _builder;
+
         /// <summary>
         /// Simple builder
         /// </summary>
-        /// <returns></returns>
         public SolarSystemModel CreateSmallSolarSystem()
         {
-            var ssBuilder = new SolarSystemBuilder();
+            _builder = new SolarSystemBuilder();
 
-            ssBuilder.SetTextStyle();
-            ssBuilder.SetTitle("Zero planets");
-            ssBuilder.AddPlanet("Alfa", 142, "rgb(1,192,255,0.5)", 15000);
-            ssBuilder.AddPlanet("Beta", 180, "rgb(1,192,255,0.5)", 16000);
+            _builder.SetTextStyle();
+            _builder.SetTitle("Zero planets");
+            _builder.AddPlanet("Alfa", 142, "rgb(1,192,255,0.5)", 15000);
+            _builder.AddPlanet("Beta", 180, "rgb(1,192,255,0.5)", 16000);
 
-            return ssBuilder.Model;
+            return _builder.Model;
         }
 
         /// <summary>
         /// Use builder fluently
         /// </summary>
-        /// <returns></returns>
         public SolarSystemModel CreateSmallSolarSystemFluently()
         {
             var model = FluentSolarSystemBuilder.Create()
@@ -36,7 +36,6 @@ namespace SolarSystemsFactory.Refactored
         /// <summary>
         /// Use reusable builder fluently
         /// </summary>
-        /// <returns></returns>
         public SolarSystemModel CreateSmallSolarSystemFluentlyWithReusableBuilder()
         {
             var builder = FluentSolarSystemBuilder.Create().Init("System from two");
