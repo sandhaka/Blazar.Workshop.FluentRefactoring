@@ -60,7 +60,7 @@ namespace SolarSystemsFactory.Refactored
         {
             return FluentSolarSystemBuilder.Create(_builder)
                 .Init("Large one")
-                .Catch(e =>
+                .HandleEception(e =>
                 {
                     if (e is SolarSystemBuilderException solarSystemBuilderException)
                     {

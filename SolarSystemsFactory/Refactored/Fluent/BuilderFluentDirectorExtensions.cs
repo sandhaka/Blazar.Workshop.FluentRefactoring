@@ -97,7 +97,7 @@ namespace SolarSystemsFactory.Refactored.Fluent
             return myBuilder;
         }
 
-        public static ISsBuilderInitialized Catch(
+        public static ISsBuilderInitialized HandleEception(
             this ISsBuilderInitialized builder,
             Action<Exception> handler)
         {

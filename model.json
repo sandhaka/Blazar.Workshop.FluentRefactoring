@@ -1,71 +1,23 @@
 {
-  "name": "Large one",
+  "name": "Zero planets",
   "planets": [
     {
-      "rotationDuration": 20000,
-      "name": "Selene",
-      "orbitRadius": 90,
-      "orbitStroke": "rgb(1, 192, 255, 0.5)"
-    },
-    {
-      "rotationDuration": 20000,
-      "name": "Mimas",
-      "orbitRadius": 116,
-      "orbitStroke": "rgb(1, 192, 255, 0.5)"
-    },
-    {
-      "rotationDuration": 20000,
-      "name": "Ares",
-      "orbitRadius": 142,
-      "orbitStroke": "rgb(1, 192, 255, 0.5)"
-    },
-    {
-      "rotationDuration": 23000,
-      "name": "Enceladus",
-      "orbitRadius": 168,
-      "orbitStroke": "rgb(1, 192, 255, 0.5)"
-    },
-    {
-      "rotationDuration": 14000,
-      "name": "Tethys",
-      "orbitRadius": 194,
-      "orbitStroke": "rgb(1, 192, 255, 0.5)"
-    },
-    {
-      "rotationDuration": 10000,
-      "name": "Dione",
-      "orbitRadius": 220,
-      "orbitStroke": "rgb(1, 192, 255, 0.5)"
-    },
-    {
       "rotationDuration": 15000,
-      "name": "Rhea",
-      "orbitRadius": 272,
-      "orbitStroke": "rgb(1, 192, 255, 0.5)"
+      "name": "Alfa",
+      "orbitRadius": 142,
+      "orbitStroke": "rgb(1,192,255,0.5)"
     },
     {
-      "rotationDuration": 28000,
-      "name": "Hyperion",
-      "orbitRadius": 324,
-      "orbitStroke": "rgb(1, 192, 255, 0.5)"
-    },
-    {
-      "rotationDuration": 22000,
-      "name": "Iapetus",
-      "orbitRadius": 350,
-      "orbitStroke": "rgb(1, 192, 255, 0.5)"
-    },
-    {
-      "rotationDuration": 24000,
-      "name": "Janus",
-      "orbitRadius": 376,
-      "orbitStroke": "rgb(1, 192, 255, 0.5)"
+      "rotationDuration": 16000,
+      "name": "Beta",
+      "orbitRadius": 180,
+      "orbitStroke": "rgb(1,192,255,0.5)"
     }
   ],
   "textStyle": {
-    "fontFamily": "Open Sans",
-    "fontSize": 16,
-    "bgrColor": "#002244",
-    "fillColor": "#fff"
+    "fontFamily": null,
+    "fontSize": 0,
+    "bgrColor": null,
+    "fillColor": null
   }
 }
