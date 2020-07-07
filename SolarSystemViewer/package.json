@@ -10,7 +10,7 @@
   "author": "Matteo Tosato",
   "license": "ISC",
   "dependencies": {
-    "electron": "^6.0.7",
+    "electron": "^7.2.4",
     "fabric": "^3.4.0"
   }
 }
